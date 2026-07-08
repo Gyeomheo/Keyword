@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+# Runtime inputs, outputs, and logs are regenerated locally.
+data/input/
+data/output/
+*.log
+
+# Trained models and vector artifacts are too large for normal Git history.
+model/
+backup/models/
+
+# Local backups are kept out of the repository by default.
+backup/
