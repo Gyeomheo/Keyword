@@ -1,29 +1,29 @@
 # Keyword Engine README
 
 ## 개요
-`C:\Keyword`는 검색어(`Keyword`)를 제품/브랜드/의도 기준으로 자동 분류하는 하이브리드 엔진입니다.
+`Keyword`는 검색어(`Keyword`)를 제품/브랜드/의도 기준으로 자동 분류하는 하이브리드 엔진입니다.
 
 - 출력 라벨 컬럼: `Division`, `Product`, `Keyword Type`, `Brand`, `Type`
 - 처리 방식: 룰 기반 + 임베딩 + ML 추론
 
 ## 폴더 구조
-- 입력: `C:\Keyword\data\input`
-- 출력: `C:\Keyword\data\output`
-- 마스터 DB: `C:\Keyword\data\master\검색량.csv`
-- 모델/벡터: `C:\Keyword\model`
-- 코드: `C:\Keyword\src`, `C:\Keyword\main.py`
+- 입력: `data\input`
+- 출력: `data\output`
+- 마스터 DB: `data\master\검색량.csv`
+- 모델/벡터: `model`
+- 코드: `src`, `main.py`
 
 ## 요구사항
 - Python 3.10+ 권장
 - 의존성 설치:
 
 ```bash
-pip install -r C:\Keyword\requirements.txt
+pip install -r requirements.txt
 ```
 
 ## 실행 방법
 ```bash
-python C:\Keyword\main.py
+python main.py
 ```
 
 실행 시 `data/input` 내 `*.csv`를 순차 처리하여 `data/output/RESULT_*.csv`로 저장합니다.
@@ -142,15 +142,15 @@ python C:\Keyword\main.py
   - 낮은 `Confidence` 구간을 샘플링해 룰/학습데이터를 보강하면 성능이 개선됩니다.
 
 ## 핵심 파일
-- 실행 진입점: `C:\Keyword\main.py`
-- 파이프라인: `C:\Keyword\src\pipeline.py`
-- 엔진: `C:\Keyword\src\engine.py`
-- 임베딩/ML 래퍼: `C:\Keyword\src\inference.py`
-- 설정/경로: `C:\Keyword\src\config.py`
+- 실행 진입점: `main.py`
+- 파이프라인: `src\pipeline.py`
+- 엔진: `src\engine.py`
+- 임베딩/ML 래퍼: `src\inference.py`
+- 설정/경로: `src\config.py`
 
 ## 모델 관련
-- RF 모델 파일: `C:\Keyword\model\rf_classifier.joblib`
-- TF-IDF 벡터라이저: `C:\Keyword\model\tfidf_vectorizer.joblib`
+- RF 모델 파일: `model\rf_classifier.joblib`
+- TF-IDF 벡터라이저: `model\tfidf_vectorizer.joblib`
 - SBERT 모델: `all-MiniLM-L6-v2` (실행 시 로드)
 - 모델이 없으면 `main.py`에서 자동 학습 시도(`scripts/train_rf.py`)
 - 현재 RF 학습 고정값:
@@ -184,3 +184,4 @@ python C:\Keyword\main.py
 ## 참고
 - `Keyword_revolution.py`는 단일 스크립트형 레거시 실행 버전입니다.
 - 현재 권장 진입점은 모듈형 파이프라인 `main.py`입니다.
+

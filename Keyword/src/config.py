@@ -1,4 +1,3 @@
-import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
@@ -6,7 +5,7 @@ from typing import List
 @dataclass
 class Config:
     # Base paths
-    BASE_DIR: Path = Path(r"C:\Keyword")
+    BASE_DIR: Path = Path(__file__).resolve().parents[1]
     
     # Subdirectories
     MASTER_DIR: Path = BASE_DIR / "data" / "master"
@@ -55,3 +54,4 @@ class Config:
     def ensure_directories(self):
         """Creates output directory if not exists."""
         self.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+

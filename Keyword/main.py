@@ -36,12 +36,12 @@ def main():
     logger.info(">>> [System] Starting Keyword Engine...")
     
     # 0. Ensure scripts folder is in path for imports
-    scripts_path = str(Path("C:/Keyword/scripts").absolute())
+    config = Config()
+    scripts_path = str((config.BASE_DIR / "scripts").resolve())
     if scripts_path not in sys.path:
         sys.path.append(scripts_path)
     
     try:
-        config = Config()
         config.validate_paths()
         
         # 1. Load Master Table (Now from data/master)
@@ -90,4 +90,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
