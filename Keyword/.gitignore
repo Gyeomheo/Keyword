@@ -12,3 +12,8 @@ backup/models/
 
 # Local backups are kept out of the repository by default.
 backup/
+
+# Credentials
+.env
+.env.*
+!.env.example
